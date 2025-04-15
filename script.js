@@ -46,6 +46,14 @@ function clearCanvas() {
 function activateEraser() {
     isErasing = true;
 }
+function saveDrawing() {
+    const image = canvas.toDataURL("image/png");
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = 'my_drawing.png';
+    link.click();
+}
+
 
 canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
